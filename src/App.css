@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+.App{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2f74c0;
+    font-family: 'Neucha', cursive;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.heading{
+    text-transform: uppercase;
+    font-size: 40px;
+    margin: 30px 0;
+    z-index: 1;
+    text-align: center;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form{
+    width: 90%;
+    display: flex;
+    position: relative;
+    align-items: center;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.input{
+    padding: 20px 30px;
+    font-size: 25px;
+    border: none;
+    transition: 0.3s;
+    width: 100%;
+    border-radius: 50px;
+    box-shadow: inset 0 0 5px black;
 }
-
-.App-link {
-  color: #61dafb;
+.input:focus{
+    box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.5);
+    outline: none;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.submit-btn{
+    font-size: 15px;
+    margin: 12px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    right: 0%;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #2f74c0;
+    color: white;
+    transition: 0.2s all;
+    box-shadow: 0 0 10px black;
+}
+.submit-btn:hover{
+    background-color: #388ae2;
+}
+.submit-btn:active{
+    transform: scale(0.8);
+    box-shadow: 0 0 5px black;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+}
+.todo_single{
+    display: flex;
+    width: 100%;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 15px;
+    background-color: rgb(220, 177, 70);
+}
+.todo__single_text{
+    flex: 1;
+    padding: 5px;
+    border: none;
+    font-size: 20px;
+}
+.icon{
+    margin-left: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+.text__input{
+border-radius: 50px;
+padding: 10px;
+border: none;
+}
+.text__input:focus{
+outline: none;
+}
+@media  (max-width:700px){
+    .todo_single{
+        width: 100%;
+    }
 }

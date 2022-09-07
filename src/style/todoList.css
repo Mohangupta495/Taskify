@@ -1,0 +1,32 @@
+.container{
+    column-gap: 10%;
+}
+.done__todo{
+    background-color: plum;
+    width: 45%;
+    padding:20px;
+    margin-top: 20px;
+    text-align: center;
+    border-radius: 30px;
+}
+.all__todo{
+    background-color: #7FFFD4;
+    width: 45%;
+    padding:20px;
+    margin-top: 20px;
+    text-align: center;
+    border-radius: 30px;
+}
+@media only screen and (max-width: 600px) {
+    .container{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .all__todo{
+        width: 100%;
+    }
+    .done__todo{
+        width: 100%;
+    }
+  }
