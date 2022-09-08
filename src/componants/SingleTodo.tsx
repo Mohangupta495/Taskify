@@ -3,7 +3,6 @@ import {Todos} from "../model";
 import {AiFillEdit, AiFillDelete} from "react-icons/ai";
 import {MdDone} from "react-icons/md";
 import {Draggable} from "react-beautiful-dnd";
-import Todolist from "./Todolist";
 
 interface typeState {
   edit: boolean;

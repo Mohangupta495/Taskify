@@ -31,7 +31,7 @@ export default class Todolist extends Component<typeProps> {
                   <SingleTodo
                     index={index}
                     todo={todo}
-                    key={todo.id}
+                    key={index}
                     todos={this.props.todos}
                     handleDone={this.props.handleDone}
                     handleDelete={this.props.handleDelete}
@@ -40,32 +40,33 @@ export default class Todolist extends Component<typeProps> {
                   />
                 );
               })}
+              {provided.placeholder}
             </div>
           )}
         </Droppable>
         <Droppable droppableId="TodoRemove">
-          {provided => (
+          {(provided) => (
             <div
               className="done__todo"
               ref={provided.innerRef}
               {...provided.droppableProps}
             >
-              <span className="heading">ALL Tasks</span>
+              <span className="heading">Completed Tasks</span>
               {this.props.completeTodo.map((todo, index) => {
                 return (
                   <SingleTodo
                     index={index}
                     todo={todo}
-                    key={todo.id}
+                    key={index}
                     todos={this.props.completeTodo}
                     handleDone={this.props.handleDone}
                     handleDelete={this.props.handleDelete}
                     handleNewInput={this.props.handleCompleteTodo}
-                    {...provided.placeholder}
                     // handleCompleteTodo={this.props.handleCompleteTodo}
                   />
                 );
               })}
+              {provided.placeholder}
             </div>
           )}
         </Droppable>

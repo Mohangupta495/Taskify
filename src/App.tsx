@@ -4,6 +4,7 @@ import {Todos} from "./model";
 import Todolist from "./componants/Todolist";
 import "./app.css";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
+import { isBuffer } from "util";
 // import { MdFollowTheSigns } from "react-icons/md";
 
 interface typeState {
@@ -16,7 +17,7 @@ export default class App extends Component<{}, typeState> {
     todo: "",
     todos: [{id: 101, todo: "hello, This is your Taskify", isDone: false}],
     completeTodo: [
-      {id: 102, todo: "hello, This is your complted Taskify", isDone: true},
+      {id: 103, todo: "hello, This is your complted Taskify", isDone: true},
     ],
   };
   handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,11 +57,41 @@ export default class App extends Component<{}, typeState> {
     // console.log(this.props.todos.map((todos)=>todos.id===id?{...todos,todo:this.state.editTodo}:todos))
   };
   handleCompleteTodo = () => {
-    console.log("handleCompleteTodo is running.....");
+    // console.log("handleCompleteTodo is running.....");
   };
+
   handleDnD=(result:DropResult)=>{
-    console.log(result);
-    
+    const {source,destination} =result;
+    if (!destination) 
+      return;
+    if (destination.droppableId===source.droppableId && destination.index===source.index) 
+      return;
+
+      let add;
+      let complete=this.state.completeTodo;
+      let active=this.state.todos;
+
+      if(source.droppableId==="Todolist"){
+        add=active[source.index];
+        active.splice(source.index,1)
+      }
+      else{
+        add=complete[source.index];
+        complete.splice(source.index,1)
+      }
+      if(destination.droppableId==="Todolist"){
+        active.splice(source.index,0,add)
+      }
+      else{
+        complete.splice(source.index,0,add)
+      }
+      this.setState({completeTodo:complete})
+      this.setState({todos:active})
+      console.log("this is complete todo");
+      console.log(this.state.completeTodo);
+      console.log("this is total todo");
+      console.log(this.state.todos);
+      
   }
   render() {
     // console.log(this.state.todos);
